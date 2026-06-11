@@ -1,0 +1,4 @@
+bin/
+*.o
+italian_dist_graph.csv
+output.txt

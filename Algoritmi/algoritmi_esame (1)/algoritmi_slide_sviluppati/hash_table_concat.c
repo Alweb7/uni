@@ -1,0 +1,145 @@
+/**************************************
+*  Struttura dati per tabelle hash
+*  con concatenamento
+**************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdbool.h>
+#include <math.h>
+#define SEPARATOR "#<ab@17943918#@>#"
+
+// Liste doppie di trabocco
+
+struct listEl {
+    int            info;
+    struct listEl* pred; // puntatore al predecessore
+    struct listEl* next; // puntatore al successivo
+};
+
+typedef struct listEl* list;
+
+// post: inserisce la chiave x in un frame
+//       il cui predecessore è p e successore è n
+list Cons(int x, list p, list n) {
+    list newlist = malloc(sizeof(struct listEl));
+    newlist->info = x;
+    newlist->pred = p;
+    newlist->next = n;
+    return newlist;
+}
+
+void printlist (list l) {
+    while (l != NULL) {
+        printf("%d ", l->info);
+        l = l->next;
+    }
+    printf("\n");
+}
+
+// Tabelle hash con concatenzaione
+
+struct hashFrame {
+    int       dim;  // dimensione della tabella
+    list*   array;  // puntatore alla tabella array[0..dim-1] 
+};
+
+typedef struct hashFrame* HashTable;
+
+// pre:  0 < m
+// post: ritorna una tabella hash di dimensione m a chiavi intere;
+//       la tabella contiene m puntatori a liste di trabocco ed è
+//       inizializzata con tutti NULL
+HashTable newHashTable(int m)
+{
+    HashTable T = malloc(sizeof(struct hashFrame));
+    T->dim = m;
+    T->array = malloc(m * sizeof(list));
+    for(int i = 0; i < m; i++)
+        T->array[i] = NULL;
+    return T;
+}
+
+// pre:  0 <= k chiave, 0 < m == dimensione della tabella
+// post: ritorna k mod m
+int hashFun(int k, int m)
+{
+    return k % m;
+}
+
+void showTable (HashTable T) {
+    for (int i = 0; i < T->dim; i++) {
+        printf("%d : ", i);
+        printlist(T->array[i]);
+    }
+}
+
+list listSearch(list l, int k){
+    if(!l) return NULL;
+    
+    list x = l;
+    while(x != NULL && x->info != k){
+        x = x->next;
+    }
+    return x;
+}
+
+void listInsert(list* l, list x){
+    x->next = *l;
+    if(*l != NULL){
+        (*l)->pred = x;
+    }
+    *l = x;
+    x->pred = NULL;
+}
+
+//complessità O(1)
+void listDelete(list* l, list x){
+    if(x->pred != NULL){
+        x->pred->next = x->next;
+    }
+    else{
+        *l = x->next;
+    }
+    if(x->next){
+        x->next->pred = x->pred;
+    }
+}
+
+//O(1)
+void hashInsert(HashTable t, list x){
+    // Calcolo l'indice
+    int i = hashFun(x->info, t->dim);
+    // Passiamo l'indirizzo della cella dell'array per poterla modificare
+    listInsert(&(t->array[i]), x);
+}
+
+//tempo proporzionale alla lunghezza della lista T(h(k))
+//caso peggiore: Theta(N)
+//caso migliore O(1)
+//caso medio: O(1)
+list hashSeach(HashTable t, int k){
+    int i = hashFun(k, t->dim);
+    list l = t->array[i];
+    return listSearch(l, k);
+}
+
+//O(1)
+void hashDelete(HashTable t, list x){
+    // Calcolo l'indice basandomi sulla chiave dell'elemento x
+    int i = hashFun(x->info, t->dim);
+    // Passiamo l'indirizzo della cella dell'array
+    listDelete(&(t->array[i]), x);
+}
+
+int main () {
+    HashTable T = newHashTable(10);
+
+    list nuovoElemento = Cons(10, NULL, NULL);
+    hashInsert(T, nuovoElemento);
+
+
+    return 0;
+}

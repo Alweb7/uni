@@ -1,0 +1,16 @@
+# Ignora tutto
+*
+
+# Tieni le cartelle
+!*/
+
+# Codice sorgente
+!*.c
+!*.h
+!*.java
+!Makefile
+!makefile
+!*.config
+
+# Tieni anche .gitignore stesso
+!.gitignore
