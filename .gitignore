@@ -1,13 +1,13 @@
 # Ignora tutto
 *
 
-# Cartelle private
+# Tieni le cartelle (tranne quelle private sotto)
+!*/
+
+# Cartelle private - dopo !*/ per avere precedenza
 Progetto_mio_pergestirefile/
 copi_libretto/
 github/
-
-# Tieni le cartelle
-!*/
 
 # Codice sorgente
 !*.c
