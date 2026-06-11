@@ -5,9 +5,7 @@
 !*/
 
 # Cartelle private - dopo !*/ per avere precedenza
-Progetto_mio_pergestirefile/
-copi_libretto/
-github/
+Progetti Tommi/
 
 # Codice sorgente
 !*.c
