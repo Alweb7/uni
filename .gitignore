@@ -11,6 +11,13 @@
 !Makefile
 !makefile
 !*.config
+!*.py
+
+# Documenti e materiali
+!*.pdf
+!*.md
+!*.txt
+!*.png
 
 # Tieni anche .gitignore stesso
 !.gitignore

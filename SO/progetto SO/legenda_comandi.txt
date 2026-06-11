@@ -1,0 +1,44 @@
+Legenda comandi del progetto Oasi del Golfo
+
+1. Compilazione
+make
+Compila tutti gli eseguibili del progetto:
+- manager
+- worker
+- user
+- disorder
+- addusers
+
+2. Pulizia
+make clean
+Rimuove eseguibili, file oggetto e il file stats.csv generato durante le esecuzioni.
+
+3. Avvio simulazione con configurazione timeout
+./manager config/config_timeout.conf
+Avvia la simulazione con una configurazione pensata per terminare per timeout.
+
+4. Avvio simulazione con configurazione overload
+./manager config/config_overload.conf
+Avvia la simulazione con una configurazione pensata per terminare per overload.
+
+5. Blocco temporaneo della cassa
+./disorder /tmp/oasi_fifo
+Invia al manager un comando che blocca i pagamenti in cassa per il numero di secondi definito da `stop_duration_seconds` nel file di configurazione.
+Il path della FIFO deve coincidere con quello definito nel file di configurazione usato dal manager.
+
+6. Aggiunta dinamica di utenti
+./addusers /tmp/oasi_fifo 5
+Invia al manager un comando che aggiunge 5 nuovi utenti alla simulazione in corso.
+Il path della FIFO deve coincidere con quello definito nel file di configurazione usato dal manager.
+
+7. File di output statistico
+stats.csv
+File CSV generato dal manager con statistiche giornaliere e finali della simulazione.
+
+8. Sequenza tipica di utilizzo
+make
+./manager config/config_timeout.conf
+
+Da un secondo terminale, mentre la simulazione e' in esecuzione:
+./disorder /tmp/oasi_fifo
+./addusers /tmp/oasi_fifo 5
