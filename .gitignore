@@ -1,6 +1,11 @@
 # Ignora tutto
 *
 
+# Cartelle private
+Progetto_mio_pergestirefile/
+copi_libretto/
+github/
+
 # Tieni le cartelle
 !*/
 
