@@ -42,7 +42,7 @@ async def convert(pdf_path):
         return
 
     chunks = split_text(text)
-    print(f"Testo: {len(text)} caratteri → {len(chunks)} parti")
+    print(f"Testo: {len(text)} caratteri -> {len(chunks)} parti")
 
     for i, chunk in enumerate(chunks, 1):
         if len(chunks) == 1:
