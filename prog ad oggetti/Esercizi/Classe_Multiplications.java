@@ -13,9 +13,9 @@ public class Classe_Multiplications {
     static void try_stamp(int[][] a){
         for (int[] is : a) {
             for (int n : is) {
-                System.out.println(n);
+                System.out.printf("%d",n);
             }
-            System.out.println("\n");
+            System.out.println();
         }
     }
     public static void main(String[] args) {
