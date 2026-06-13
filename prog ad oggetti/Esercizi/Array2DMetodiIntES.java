@@ -28,22 +28,17 @@ public class Array2DMetodiIntES {
         }
         return sum;
     }
-    static boolean confronto(int[][] a,int[][] b){
-        if (n_row(a)!=n_row(b)) {
-            if (n_coluns(a)!=n_coluns(b)||n_coluns(a)==0||n_coluns(b)==0) {
-                return false;
-            }
-            return false;            
-        }
+    static boolean confronto(int[][] a, int[][] b){
+        if (n_row(a) != n_row(b)) return false;
+        if (n_coluns(a) != n_coluns(b)) return false;
         for(int i=0;i<a.length;i++){
             for(int j=0;j<a[i].length;j++){
                 if (a[i][j]!=b[i][j]) {
-                    return false;                    
+                    return false;
                 }
             }
         }
         return true;
-
     }
 
     public static void main(String[] args) {
