@@ -40,6 +40,24 @@ public class Array2DMetodiIntES {
         }
         return true;
     }
+    static boolean found_e(int[][] a,int e){
+        for (int[] is : a) {
+            for (int n : is) {
+                if (n==e) return true;
+            }
+        }
+        return false;
+    }
+    static int max_value(int[][] a) {
+        int max= a[0][0];
+        for (int[] is : a) {
+            for (int n : is) {
+                if(max<n) max=n;
+            }
+        }
+        return max;   
+        
+    }
 
     public static void main(String[] args) {
         int[][] a = {{1,2,3},{4,5,6},{7,8,9}};
