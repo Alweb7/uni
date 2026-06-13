@@ -4,7 +4,7 @@ public class Array2DMetodiIntES {
 
     }
     static int n_coluns(int[][] a){
-        for(int i=0;i<a.length;i++){
+        for(int i=0;i<a.length-1;i++){
             if (a[i].length!=a[i+1].length) {
                 return 0;
             }
@@ -14,7 +14,7 @@ public class Array2DMetodiIntES {
     static void stamp_array(int[][] a){
         for(int i=0;i<a.length;i++){
             for (int is : a[i]) {
-                System.err.println(is);
+                System.out.println(is);
             }
         }
     }
@@ -32,7 +32,8 @@ public class Array2DMetodiIntES {
         if (n_row(a)!=n_row(b)) {
             if (n_coluns(a)!=n_coluns(b)||n_coluns(a)==0||n_coluns(b)==0) {
                 return false;
-            }            
+            }
+            return false;            
         }
         for(int i=0;i<a.length;i++){
             for(int j=0;j<a[i].length;j++){
