@@ -76,6 +76,13 @@ public class Array2DMetodiIntES {
         System.out.println("confronto a==b: " + confronto(a, b)); // true
         System.out.println("confronto a==c: " + confronto(a, c)); // false (elemento diverso)
         System.out.println("confronto a==d: " + confronto(a, d)); // false (righe diverse)
+
+        System.out.println("found_e 5: " + found_e(a, 5));        // true
+        System.out.println("found_e 0: " + found_e(a, 0));        // false
+
+        System.out.println("max_value: " + max_value(a));         // 9
+        int[][] negativi = {{-5,-2},{-8,-1}};
+        System.out.println("max_value negativi: " + max_value(negativi)); // -1
     }
     
 }
