@@ -15,6 +15,7 @@ public class Classe_Multiplications {
             for (int n : is) {
                 System.out.println(n);
             }
+            System.out.println("\n");
         }
     }
     public static void main(String[] args) {
