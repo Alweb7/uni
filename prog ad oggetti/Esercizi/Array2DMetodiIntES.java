@@ -42,7 +42,22 @@ public class Array2DMetodiIntES {
     }
 
     public static void main(String[] args) {
-        
+        int[][] a = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] b = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] c = {{1,2,3},{4,5,6},{7,8,0}};
+        int[][] d = {{1,2},{3,4}};
+
+        System.out.println("n_row: " + n_row(a));           // 3
+        System.out.println("n_coluns: " + n_coluns(a));     // 3
+
+        System.out.println("stamp_array:");
+        stamp_array(a);
+
+        System.out.println("sum_array: " + sum_array(a));   // 45
+
+        System.out.println("confronto a==b: " + confronto(a, b)); // true
+        System.out.println("confronto a==c: " + confronto(a, c)); // false (elemento diverso)
+        System.out.println("confronto a==d: " + confronto(a, d)); // false (righe diverse)
     }
     
 }
