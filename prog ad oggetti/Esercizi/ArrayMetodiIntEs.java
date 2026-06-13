@@ -33,9 +33,9 @@ public class ArrayMetodiIntEs {
         return false;
     }
     static int max_value(int[] a) {
-        int max = a[0];
+        int max = a[0]; //cosi almeno in caso di numeri negativi funziona
         for (int i = 1; i < a.length; i++) {
-            if (a[i] > max) max = a[i];
+            if (a[i] > max) max = a[i]; //trova il max
         }
         return max;
     }
