@@ -18,8 +18,14 @@ public class Classe_Multiplications {
             System.out.println();
         }
     }
+    static int prodotto(int b,int c){
+        int[][] a=Newarray();
+        int prod=a[b-1][c-1];
+        return prod;
+    }
     public static void main(String[] args) {
         try_stamp(Newarray());
+
         
     }
 }
