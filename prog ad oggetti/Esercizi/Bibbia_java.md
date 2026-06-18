@@ -144,3 +144,80 @@ static final double PI = 3.14;
 ```
 
 > Per convenzione i nomi delle costanti si scrivono in **MAIUSCOLO** con underscore.
+
+## 6. Strutture Dati: La Pila (Stack) Array-based
+
+# Implementazione L.I.F.O. base con Array.
+
+class Pila {
+    private int[] stack = new int[100];
+    private int top = 0; // Segnala la prima posizione libera
+
+    public void push(int n) {
+        stack[top] = n;
+        top++;
+    }
+
+    public int pop() {
+        if (top <= 0) return -1; // Gestione errore
+        top--;
+        return stack[top];
+    }
+}
+## Costruttori
+
+Metodo speciale chiamato col new. Nessun tipo di ritorno, stesso nome della classe.
+Se non scritto, Java ne crea uno vuoto.
+
+public class Conto {
+    private String nome;
+    private int saldo;
+
+    // Costruttore completo
+    public Conto(String nome, int saldo) {
+        this.nome = nome;
+        this.saldo = saldo;
+    }
+
+    // Costruttore in Overloading (chiama l'altro con this)
+    public Conto(String nome) {
+        this(nome, 0); 
+    }
+}
+
+4. Input e Output
+
+Stampa Console
+
+System.out.println("Testo: " + var); // Va a capo
+System.out.print("Testo");           // Non va a capo
+
+// Printf (Formattato, non va a capo, usa %n)
+// %s = String, %d = intero, %.2f = decimale a 2 cifre
+System.out.printf("Nome: %s, Età: %d%n", nome, eta);
+System.out.printf("Allineato a destra: %4d%n", a[i][j]); 
+
+
+Input da Tastiera (Scanner)
+
+import java.util.Scanner;
+Scanner s = new Scanner(System.in);
+
+String str = s.nextLine();
+int num = s.nextInt();
+double dec = s.nextDouble();
+
+s.close(); // Buona pratica
+3. Stringhe e Caratteri
+
+char vs String
+
+char c = 'A';             // Apici singoli, 1 carattere
+String s = "Java";        // Doppi apici, oggetto (sequenza di char)
+int len = s.length();     // Lunghezza stringa (CON parentesi)
+
+
+Conversioni ASCII (Il trucco del '0')
+
+char c = '7';
+int veroNumero = c - '0'; // 55 - 48 = 7 (diventa int)

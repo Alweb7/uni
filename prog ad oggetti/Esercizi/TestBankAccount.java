@@ -40,6 +40,9 @@ class BankAccount {
     public void deposito(int deposito){
         liquidita=deposito+liquidita;
     }
+    public int getId(){
+        return id;
+    }
 
 
 
