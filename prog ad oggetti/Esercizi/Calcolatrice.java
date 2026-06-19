@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Calcolatrice {
+public class Calcolatrice {
     int[] stack=new int[100];
     int top=0;
     public void push(int n){
@@ -58,7 +58,7 @@ class Calcolatrice {
         System.out.println("]"+"lunghezza"+top); // Chiude la parentesi e va a capo
     }
 }
-public class TestCalcolatrice {
+class TestCalcolatrice {
     public static void main(String[] args) {
         Scanner s=new Scanner(System.in);
         System.out.printf("inserisci il numero:");
